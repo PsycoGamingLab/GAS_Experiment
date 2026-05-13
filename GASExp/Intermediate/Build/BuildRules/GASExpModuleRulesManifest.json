@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"C:\\UnrealEnigne\\GAS_Experiment\\GASExp\\Source\\GASExp\\GASExp.Build.cs",
-		"C:\\UnrealEnigne\\GAS_Experiment\\GASExp\\Source\\GASExp.Target.cs",
-		"C:\\UnrealEnigne\\GAS_Experiment\\GASExp\\Source\\GASExpEditor.Target.cs"
-	],
-	"EngineVersion": "5.7.4"
-}
