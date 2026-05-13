@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\unrealenigne\\gas_experiment\\gasexp\\source\\gasexp\\variant_twinstick\\ai\\twinsticknpcdestruction.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\x64\\gasexpeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\gasexp\\definitions.gasexp.h",
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\source\\gasexp\\variant_twinstick\\ai\\twinsticknpcdestruction.h",
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\unrealeditor\\inc\\gasexp\\uht\\twinsticknpcdestruction.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "GASExp",
+			"Path": "..\\Source\\GASExp.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "GASExpEditor",
+			"Path": "..\\Source\\GASExpEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\unrealenigne\\gas_experiment\\gasexp\\source\\gasexp\\variant_strategy\\strategygamemode.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\x64\\gasexpeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\gasexp\\definitions.gasexp.h",
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\source\\gasexp\\variant_strategy\\strategygamemode.h",
+            "c:\\program files\\epic games\\ue_5.7\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.7\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.7\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.7\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\unrealenigne\\gas_experiment\\gasexp\\intermediate\\build\\win64\\unrealeditor\\inc\\gasexp\\uht\\strategygamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
