@@ -6,6 +6,7 @@
 #include "AbilitySystemInterface.h"
 #include "CoreMinimal.h"
 #include "Characters/GASExpCharacter.h"
+#include "Data/GASAbilitySet.h"
 #include "GASCharacterBase.generated.h"
 
 UCLASS()
@@ -29,6 +30,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -38,4 +40,13 @@ public:
 	/** Ability System Component. Required to use Gameplay Attributes and Gameplay Abilities. */
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
 	UAbilitySystemComponent* AbilitySystemComponent;
+	
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
+	UGASAbilitySet* AbilitySet;
+	
+private:
+	void GrantAbilities();
+	
+	bool bAbilitiesGranted = false;
+	TArray<FGameplayAbilitySpecHandle> GrantedHandles;
 };

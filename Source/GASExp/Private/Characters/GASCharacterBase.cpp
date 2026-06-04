@@ -1,10 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Characters/GASCharacterBase.h"
-
+#include "Abilities/GameplayAbility.h"
 #include "GASPlayerState.h"
-
+#include "Data/GASAbilitySet.h"
 
 // Sets default values
 AGASCharacterBase::AGASCharacterBase()
@@ -23,14 +22,15 @@ void AGASCharacterBase::BeginPlay()
 void AGASCharacterBase::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
+	SetOwner(NewController);
 
-		if (AbilitySystemComponent)
-		{
-			AbilitySystemComponent->InitAbilityActorInfo(this, this);
-		}
-
-		// ASC MixedMode replication requires that the ASC Owner's Owner be the Controller.
-		SetOwner(NewController);	
+	AGASPlayerState* PS = GetPlayerState<AGASPlayerState>();
+	if (PS)
+	{
+		AbilitySystemComponent = Cast<UAbilitySystemComponent>(PS->GetAbilitySystemComponent());
+		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+		GrantAbilities();
+	}
 }
 
 // Client only
@@ -55,6 +55,29 @@ void AGASCharacterBase::OnRep_PlayerState()
 void AGASCharacterBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void AGASCharacterBase::GrantAbilities()
+{
+	if (!HasAuthority() || bAbilitiesGranted)
+		return;
+
+	UAbilitySystemComponent* ASC = GetAbilitySystemComponent();
+	if (!ASC || !AbilitySet)
+		return;
+
+	for (const FGASAbilityBindInfo& BindInfo : AbilitySet->Abilities)
+	{
+		if (!BindInfo.GameplayAbilityClass) continue;
+
+		FGameplayAbilitySpec Spec(BindInfo.GameplayAbilityClass, BindInfo.AbilityLevel, INDEX_NONE, this);
+		if (BindInfo.InputTag.IsValid())
+			Spec.GetDynamicSpecSourceTags().AddTag(BindInfo.InputTag);
+
+		GrantedHandles.Add(ASC->GiveAbility(Spec));
+	}
+
+	bAbilitiesGranted = true;
 }
 
 // Called to bind functionality to input
