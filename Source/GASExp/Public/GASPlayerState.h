@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
+#include "AbilitySystem/Attributes/PrimaryAttributeSet.h"
 #include "GameFramework/PlayerState.h"
 #include "GASPlayerState.generated.h"
 
@@ -19,9 +20,18 @@ public:
 	
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	
+
 	protected:
 	
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
 	UAbilitySystemComponent* AbilitySystemComponent;
+	
+	/*
+* ATTRIBUTES
+*/
+	UPROPERTY()
+	UPrimaryAttributeSet* PrimaryAttributeSet = nullptr;
+
+
 
 };

@@ -5,6 +5,7 @@
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemInterface.h"
 #include "CoreMinimal.h"
+#include "AbilitySystem/Attributes/PrimaryAttributeSet.h"
 #include "Characters/GASExpCharacter.h"
 #include "Data/GASAbilitySet.h"
 #include "GASCharacterBase.generated.h"
@@ -41,12 +42,16 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
 	UAbilitySystemComponent* AbilitySystemComponent;
 	
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Abilities")
 	UGASAbilitySet* AbilitySet;
 	
 private:
 	void GrantAbilities();
 	
+	UPROPERTY()
 	bool bAbilitiesGranted = false;
+	UPROPERTY()
 	TArray<FGameplayAbilitySpecHandle> GrantedHandles;
+	
+
 };
