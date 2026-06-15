@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
-#include "AbilitySystem/Attributes/PrimaryAttributeSet.h"
+#include "AbilitySystem/Attributes/VitalAttributeSet.h"
 #include "GameFramework/PlayerState.h"
 #include "GASPlayerState.generated.h"
 
@@ -18,8 +18,7 @@ class GASEXP_API AGASPlayerState : public APlayerState, public IAbilitySystemInt
 public:
 	AGASPlayerState();	
 	
-	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;	
 
 	protected:
 	
@@ -27,10 +26,10 @@ public:
 	UAbilitySystemComponent* AbilitySystemComponent;
 	
 	/*
-* ATTRIBUTES
-*/
-	UPROPERTY()
-	UPrimaryAttributeSet* PrimaryAttributeSet = nullptr;
+	* ATTRIBUTES
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	const UVitalAttributeSet* PrimaryAttributeSet = nullptr;
 
 
 

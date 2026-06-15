@@ -29,6 +29,7 @@ void AGASCharacterBase::PossessedBy(AController* NewController)
 	{
 		AbilitySystemComponent = Cast<UAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+		InitStats();
 		GrantAbilities();
 	}
 }
@@ -78,6 +79,25 @@ void AGASCharacterBase::GrantAbilities()
 	}
 
 	bAbilitiesGranted = true;
+}
+
+void AGASCharacterBase::InitStats()
+{
+	if (!HasAuthority() || bInitStats)
+		return;
+
+	UAbilitySystemComponent* ASC = GetAbilitySystemComponent();
+	if (!ASC || !Stats_GE)
+		return;
+	
+	FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(Stats_GE, 1.0, AbilitySystemComponent->MakeEffectContext());
+	if (SpecHandle.IsValid())
+	{
+		//
+		ASC->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+	}
+	
+	bInitStats = true;
 }
 
 // Called to bind functionality to input

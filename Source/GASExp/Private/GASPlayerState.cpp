@@ -2,7 +2,7 @@
 
 #include "GASPlayerState.h"
 #include "AbilitySystemComponent.h"
-#include "AbilitySystem/Attributes/PrimaryAttributeSet.h"
+#include "AbilitySystem/Attributes/VitalAttributeSet.h"
 
 AGASPlayerState::AGASPlayerState()
 {
@@ -14,7 +14,7 @@ AGASPlayerState::AGASPlayerState()
 	AbilitySystemComponent->SetIsReplicated(true);	
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 	//Attributes
-	PrimaryAttributeSet = CreateDefaultSubobject<UPrimaryAttributeSet>(TEXT("PrimaryAttributeSet"));
+	PrimaryAttributeSet = CreateDefaultSubobject<UVitalAttributeSet>(TEXT("PrimaryAttributeSet"));
 }
 
 UAbilitySystemComponent* AGASPlayerState::GetAbilitySystemComponent() const
